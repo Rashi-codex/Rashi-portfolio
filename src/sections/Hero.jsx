@@ -180,7 +180,7 @@ export default function Hero() {
                   <a href="https://github.com/Rashi-codex" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="flex items-center justify-center w-14 h-14 rounded-full bg-slate-800/60 border border-white/5 text-slate-200 hover:bg-slate-700/80 hover:scale-105 transition-all backdrop-blur-md shadow-sm">
                     <FaGithub className="w-5 h-5" />
                   </a>
-                  <a href="https://www.linkedin.com/in/rashi-gupta-12b7a728a" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="flex items-center justify-center w-14 h-14 rounded-full bg-slate-800/60 border border-white/5 text-sky-400 hover:bg-slate-700/80 hover:scale-105 transition-all backdrop-blur-md shadow-sm">
+                  <a href="https://www.linkedin.com/in/rashi-gupta-12b7a728a/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="flex items-center justify-center w-14 h-14 rounded-full bg-slate-800/60 border border-white/5 text-sky-400 hover:bg-slate-700/80 hover:scale-105 transition-all backdrop-blur-md shadow-sm">
                     <FaLinkedin className="w-5 h-5" />
                   </a>
                 </motion.div>

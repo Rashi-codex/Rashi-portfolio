@@ -1,48 +1,10 @@
-import React, { useState } from 'react';
-import { Mail, Send, Loader2 } from 'lucide-react';
+import React from 'react';
+import { Mail } from 'lucide-react';
 import { FaLinkedin, FaGithub } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import { ElegantShape } from '../components/ui/shape-landing-hero';
-import emailjs from '@emailjs/browser';
 
 const Contact = () => {
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState(null);
-
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setSubmitStatus(null);
-
-    try {
-      const result = await emailjs.send(
-        'YOUR_SERVICE_ID',
-        'YOUR_TEMPLATE_ID',
-        {
-          from_name: formData.name,
-          from_email: formData.email,
-          message: formData.message,
-          to_email: 'ursrashi24@gmail.com',
-        },
-        'YOUR_PUBLIC_KEY'
-      );
-
-      if (result.status === 200) {
-        setSubmitStatus('success');
-        setFormData({ name: '', email: '', message: '' });
-      }
-    } catch (error) {
-      setSubmitStatus('error');
-      console.error('Email error:', error);
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
 
   return (
     <section id="contact" className="py-32 bg-white relative overflow-hidden z-10">
@@ -118,52 +80,6 @@ const Contact = () => {
             Currently looking for Data Analyst and Software Engineering roles.
           </p>
           
-          <form onSubmit={handleSubmit} className="flex flex-col gap-4 mb-10 max-w-xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <input
-                type="text"
-                name="name"
-                placeholder="Your Name"
-                value={formData.name}
-                onChange={handleChange}
-                required
-                className="w-full px-4 py-3 bg-white/80 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-cyan-500/50 text-slate-900 placeholder-slate-500"
-              />
-              <input
-                type="email"
-                name="email"
-                placeholder="Your Email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-                className="w-full px-4 py-3 bg-white/80 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-cyan-500/50 text-slate-900 placeholder-slate-500"
-              />
-            </div>
-            <textarea
-              name="message"
-              placeholder="Your Message"
-              value={formData.message}
-              onChange={handleChange}
-              required
-              rows={4}
-              className="w-full px-4 py-3 bg-white/80 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-cyan-500/50 text-slate-900 placeholder-slate-500 resize-none"
-            />
-            <button
-              type="submit"
-              disabled={isSubmitting}
-              className="flex items-center justify-center gap-3 bg-slate-900 hover:bg-slate-800 text-white px-8 py-4 rounded-xl transition-all shadow-[0_0_20px_rgba(15,23,42,0.2)] hover:shadow-[0_0_30px_rgba(15,23,42,0.4)] font-semibold disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              {isSubmitting ? <Loader2 size={20} className="animate-spin" /> : <Send size={20} />}
-              <span>{isSubmitting ? 'Sending...' : 'Send Message'}</span>
-            </button>
-            {submitStatus === 'success' && (
-              <p className="text-green-600 text-sm font-medium">Message sent successfully! I'll get back to you soon.</p>
-            )}
-            {submitStatus === 'error' && (
-              <p className="text-red-600 text-sm font-medium">Failed to send message. Please try again or use the email button below.</p>
-            )}
-          </form>
-          
           <div className="flex flex-col md:flex-row justify-center items-center gap-6">
             <a 
               href="mailto:ursrashi24@gmail.com" 
@@ -175,7 +91,7 @@ const Contact = () => {
             
             <div className="flex justify-center gap-4">
               <a 
-                href="https://www.linkedin.com/in/rashi-gupta-b11874221/" 
+                href="https://www.linkedin.com/in/rashi-gupta-12b7a728a/" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="flex items-center justify-center w-14 h-14 bg-white hover:bg-blue-50 text-slate-700 hover:text-blue-600 rounded-xl transition-all border border-slate-200 hover:border-blue-200 shadow-sm hover:shadow-[0_0_20px_rgba(59,130,246,0.3)]"
@@ -184,7 +100,7 @@ const Contact = () => {
                 <FaLinkedin size={22} />
               </a>
               <a 
-                href="https://github.com/rashi-02" 
+                href="https://github.com/Rashi-codex" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="flex items-center justify-center w-14 h-14 bg-white hover:bg-slate-50 text-slate-700 hover:text-slate-900 rounded-xl transition-all border border-slate-200 hover:border-slate-300 shadow-sm hover:shadow-[0_0_20px_rgba(15,23,42,0.15)]"
